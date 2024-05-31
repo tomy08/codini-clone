@@ -1,0 +1,59 @@
+---
+import Cart from './svgs/Cart.astro'
+---
+
+<header class="bg-white shadow-sm">
+  <div class="container flex items-center justify-between h-16 px-4 md:px-6">
+    <a class="flex items-center gap-2 relative" href="#">
+      <img
+        src="/logo.webp"
+        alt="logo de codini"
+        class="w-32 filter brightness-50 p-2"
+      />
+    </a>
+    <div class="flex-1 max-w-md">
+      <div class="relative">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <input
+          class="flex h-10 border border-input px-3 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full rounded-full bg-gray-100 pl-12 pr-4 py-2 text-sm focus:bg-white focus:outline-none"
+          placeholder="Search products..."
+          type="search"
+        />
+      </div>
+    </div>
+    <nav class="flex items-center gap-4 sm:gap-6">
+      <a
+        class="text-sm font-medium hover:underline underline-offset-4"
+        href="#"
+      >
+        Home
+      </a>
+      <a
+        class="text-sm font-medium hover:underline underline-offset-4"
+        href="#"
+      >
+        Categories
+      </a>
+      <a
+        class="text-sm font-medium hover:underline underline-offset-4"
+        href="#"
+      >
+        <Cart />
+      </a>
+    </nav>
+  </div>
+</header>
