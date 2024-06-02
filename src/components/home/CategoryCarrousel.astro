@@ -1,0 +1,38 @@
+---
+const imgs = [
+  { img: '/images/categories/horno-categoria.webp', url: '/categories/hornos' },
+  {
+    img: '/images/categories/lavarropa-categoria.webp',
+    url: '/categories/lavarropas',
+  },
+  {
+    img: '/images/categories/lavarropas-automatico-categoria.webp',
+    url: '/categories/lavarropas-automaticos',
+  },
+  {
+    img: '/images/categories/secaropa-categoria.webp',
+    url: '/categories/secarropas',
+  },
+  {
+    img: '/images/categories/ventilador-categoria.webp',
+    url: '/categories/ventiladores',
+  },
+  {
+    img: '/images/categories/ventilador-techo-categoria.webp',
+    url: '/categories/ventiladores-de-techo',
+  },
+]
+---
+
+<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-4">
+  {
+    imgs.map((item) => (
+      <a
+        class="relative overflow-hidden bg-gray-200 rounded-lg aspect-w-16 aspect-h-9 max-w-64"
+        href={item.url}
+      >
+        <img src={item.img} alt="" class="object-cover w-full h-full" />
+      </a>
+    ))
+  }
+</div>

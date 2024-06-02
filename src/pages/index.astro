@@ -1,21 +1,66 @@
 ---
+import contentful from 'contentful'
+
 import Layout from '../layouts/Layout.astro'
 import Gallery from '../components/home/Gallery.astro'
+import CategoryCarrousel from '../components/home/CategoryCarrousel.astro'
+import ProductCard from '../components/shared/products/ProductCard.astro'
+import ProductContainer from '../components/shared/products/ProductContainer.astro'
+import type { Product } from '../types'
+
+const client = contentful.createClient({
+  space: '86883g4udane',
+  environment: 'master',
+  accessToken: '4PWwvkltf524AqcUR162GuxluWHTwzVQDC8aIgA4Gqs',
+})
+
+const data = async () => {
+  const entries = await client.getEntries({
+    content_type: 'product',
+  })
+
+  return entries
+}
+
+const entries = await data()
 ---
 
 <Layout title="Codini">
+  <h1 class="hidden">Codini</h1>
   <Gallery />
-  <main></main>
-</Layout>
+  <main>
+    <h2 class="text-gray-secondary text-3xl font-bold mb-6">
+      Explorá nuestras categorías
+    </h2>
+    <CategoryCarrousel />
+    <h2 class="text-gray-secondary text-3xl font-bold mb-6 pt-20">
+      Productos destacados
+    </h2>
+    <ProductContainer>
+      {
+        entries.items.map((entry: any) => (
+          <ProductCard
+            product={
+              {
+                ...entry.fields,
+                img: entry.fields.img.fields.file.url,
+              } as Product
+            }
+          />
+        ))
+      }
+    </ProductContainer>
+  </main>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-</style>
+  <style>
+    main {
+      margin: 32px auto;
+      padding: 1rem;
+      width: 1200px;
+      max-width: calc(100% - 2rem);
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</Layout>
