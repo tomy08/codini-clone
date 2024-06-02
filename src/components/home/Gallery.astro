@@ -1,0 +1,53 @@
+<div class="swiper mt-4">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="/images/swiper/banner-1.webp" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="/images/swiper/banner-2.webp" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="/images/swiper/banner-3.webp" alt="" />
+    </div>
+    <div class="swiper-slide">
+      <img src="/images/swiper/banner-4.webp" alt="" />
+    </div>
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<script>
+  import Swiper from 'swiper'
+  import 'swiper/css'
+
+  import { Navigation } from 'swiper/modules'
+  import 'swiper/css/navigation'
+
+  const swiper = new Swiper('.swiper', {
+    modules: [Navigation],
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 40,
+    navigation: {
+      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+    },
+  })
+</script>
+<style>
+  .swiper-slide {
+    height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white;
+  }
+</style>

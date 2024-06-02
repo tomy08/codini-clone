@@ -1,0 +1,44 @@
+---
+import Contact from './footer/Contact.astro'
+import LinksContainer from './footer/LinksContainer.astro'
+
+type Link = {
+  label: string
+  url: string
+}
+
+type LinksContainerProps = {
+  title: string
+  links: Link[]
+}
+
+const links: LinksContainerProps[] = [
+  {
+    title: 'Companía',
+    links: [
+      { label: 'Sobre nosotros', url: '#' },
+      { label: 'Contacto', url: '#' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Soporte Técnico', url: '#' },
+      { label: '¿Cómo Comprar?', url: '#' },
+    ],
+  },
+]
+---
+
+<footer class="bg-gray-100 py-8">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <Contact />
+      {
+        links.map(({ title, links }) => (
+          <LinksContainer title={title} links={links} />
+        ))
+      }
+    </div>
+  </div>
+</footer>
