@@ -33,13 +33,14 @@ const url = `/productos/${product.url}`
           >{product.price * (product.discount / 100)}</span
         >
         <span
-          class="text-md text-gray-secondary ${!product.discount && 'line-through'}"
-          >${product.price}</span
+          class="text-xl text-gray-secondary ${!product.discount && 'line-through'}"
         >
+          ${product.price.toLocaleString('es-ES')}
+        </span>
       </p>
     </div>
     <a
-      href="#"
+      href={url}
       class="flex items-center justify-center rounded-md bg-green-section px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-section focus:outline-none focus:ring-4 focus:ring-blue-300"
     >
       <svg
