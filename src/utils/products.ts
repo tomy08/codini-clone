@@ -12,3 +12,12 @@ export const getProducts = async () => {
 
   return entries
 }
+
+export const getProductBySlug = async (slug: string) => {
+  const entries: any = await client.getEntries({
+    content_type: 'product',
+    'fields.url': slug,
+  })
+
+  return entries
+}

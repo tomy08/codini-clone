@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Breadcrumb from '../../components/shared/Breadcrumb.astro'
+import { getProducts, getProductBySlug } from '../../utils/products'
+
+export async function getStaticPaths() {
+  const products = await getProducts()
+  const slugs = products.items.map((product) => product.fields.url)
+
+  return slugs.map((slug) => ({
+    params: { slug },
+  }))
+}
+
+const { slug } = Astro.params
+
+const products = await getProductBySlug(slug as string)
+const product = products.items[0].fields
+
+console.log(product)
+
+const description = product.description.split(/\n\s*\n/)
+---
+
+<Layout title={product.name ? product.name : product.nombre}>
+  <Breadcrumb />
+  <main class="mb-8">
+    <div class="container mx-auto px-4">
+      <div
+        class="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16"
+      >
+        <div class="lg:col-span-3 lg:row-end-1">
+          <div class="lg:flex lg:items-start">
+            <div class="lg:order-2 lg:ml-5">
+              <div class="max-w-xl overflow-hidden rounded-lg">
+                <img
+                  class="h-full w-full max-w-96 object-cover"
+                  src={product.img.fields.file.url}
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 lg:row-span-2 lg:row-end-2">
+          <h1 class="sm: text-2xl font-bold text-gray-900 sm:text-3xl">
+            {product.name ? product.name : product.nombre}
+          </h1>
+
+          <div
+            class="mt-6 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0"
+          >
+            <div class="flex items-end">
+              <h2 class="text-3xl font-bold">${product.price}</h2>
+            </div>
+
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-orange-section bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-blue-section gap-2"
+            >
+              <img src="/svgs/cart-white.svg" />
+              Add to cart
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3">
+          <div class="border-b border-gray-300">
+            <a
+              href="#"
+              title=""
+              class="py-4 text-sm font-medium text-gray-secondary"
+            >
+              Descripción
+            </a>
+          </div>
+
+          <div class="flow-root mt-4">
+            {description.map((desc: string) => <p>{desc}</p>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
