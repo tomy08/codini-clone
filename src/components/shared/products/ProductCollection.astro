@@ -1,0 +1,53 @@
+---
+import ProductContainer from './ProductContainer.astro'
+
+import PriceSort from './filters/PriceSort.astro'
+import PriceFilter from './filters/PriceFilter.astro'
+import CategoryFilter from './filters/CategoryFilter.astro'
+---
+
+<section>
+  <div class="mx-auto max-w-screen-xl">
+    <div class="mt-8 block lg:hidden">
+      <button
+        class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+      >
+        <span class="text-sm font-medium"> Filtros </span>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-4 rtl:rotate-180"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8">
+      <div class="hidden space-y-4 lg:block">
+        <PriceSort />
+        <div>
+          <p class="block text-xs font-medium text-gray-700">Filtros</p>
+
+          <div class="mt-1 space-y-2">
+            <CategoryFilter />
+            <PriceFilter />
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <ProductContainer>
+          <slot />
+        </ProductContainer>
+      </div>
+    </div>
+  </div>
+</section>

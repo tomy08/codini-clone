@@ -1,0 +1,46 @@
+<nav aria-label="Breadcrumb" class="mt-14 ml-12 pl-0">
+  <ol class="flex items-center gap-1 text-sm text-gray-600" id="breadcrumb">
+  </ol>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const breadcrumb = document.getElementById('breadcrumb')
+    const pathArray = window.location.pathname.split('/').filter((part) => part)
+    const breadcrumbItems = [{ href: '/', label: 'Home' }]
+
+    pathArray.forEach((part, index) => {
+      const href = `/${pathArray.slice(0, index + 1).join('/')}`
+      breadcrumbItems.push({
+        href,
+        label: part.charAt(0).toUpperCase() + part.slice(1),
+      })
+    })
+
+    breadcrumbItems.forEach((item, index) => {
+      const li = document.createElement('li')
+      const a = document.createElement('a')
+      a.href = item.href
+      a.textContent = item.label
+      a.className = 'block transition hover:text-gray-700'
+
+      li.appendChild(a)
+      breadcrumb?.appendChild(li)
+
+      if (index < breadcrumbItems.length - 1) {
+        const separatorLi = document.createElement('li')
+        separatorLi.className = 'rtl:rotate-180'
+        const separatorSvg = document.createElementNS(
+          'http://www.w3.org/2000/svg',
+          'svg'
+        )
+        separatorSvg.setAttribute('class', 'h-4 w-4')
+        separatorSvg.setAttribute('viewBox', '0 0 20 20')
+        separatorSvg.setAttribute('fill', 'currentColor')
+        separatorSvg.innerHTML = `<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>`
+        separatorLi.appendChild(separatorSvg)
+        breadcrumb?.appendChild(separatorLi)
+      }
+    })
+  })
+</script>

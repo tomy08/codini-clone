@@ -1,28 +1,15 @@
 ---
-import contentful from 'contentful'
-
 import Layout from '../layouts/Layout.astro'
 import Gallery from '../components/home/Gallery.astro'
 import CategoryCarrousel from '../components/home/CategoryCarrousel.astro'
 import ProductCard from '../components/shared/products/ProductCard.astro'
 import ProductContainer from '../components/shared/products/ProductContainer.astro'
+
+import { getProducts } from '../utils/products'
+
 import type { Product } from '../types'
 
-const client = contentful.createClient({
-  space: '86883g4udane',
-  environment: 'master',
-  accessToken: '4PWwvkltf524AqcUR162GuxluWHTwzVQDC8aIgA4Gqs',
-})
-
-const data = async () => {
-  const entries = await client.getEntries({
-    content_type: 'product',
-  })
-
-  return entries
-}
-
-const entries = await data()
+const products = await getProducts()
 ---
 
 <Layout title="Codini">
@@ -38,12 +25,12 @@ const entries = await data()
     </h2>
     <ProductContainer>
       {
-        entries.items.map((entry: any) => (
+        products.items.map((product: any) => (
           <ProductCard
             product={
               {
-                ...entry.fields,
-                img: entry.fields.img.fields.file.url,
+                ...product.fields,
+                img: product.fields.img.fields.file.url,
               } as Product
             }
           />
@@ -52,7 +39,7 @@ const entries = await data()
     </ProductContainer>
   </main>
 
-  <style>
+  <style is:global>
     main {
       margin: 32px auto;
       padding: 1rem;

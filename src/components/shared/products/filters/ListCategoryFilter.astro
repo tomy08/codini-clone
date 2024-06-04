@@ -1,0 +1,19 @@
+---
+interface props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<li>
+  <label for="FilterInStock" class="inline-flex items-center gap-2">
+    <input
+      type="checkbox"
+      id="FilterInStock"
+      class="size-5 rounded border-gray-300"
+    />
+
+    <span class="text-sm font-medium text-gray-700"> {title} </span>
+  </label>
+</li>
