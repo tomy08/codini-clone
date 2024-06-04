@@ -16,9 +16,6 @@ const { slug } = Astro.params
 
 const products = await getProductBySlug(slug as string)
 const product = products.items[0].fields
-
-console.log(product)
-
 const description = product.description.split(/\n\s*\n/)
 ---
 
