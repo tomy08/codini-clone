@@ -86,7 +86,7 @@ const description = product.description.split(/\n\s*\n/)
             <a
               href="#"
               title=""
-              class="py-4 text-sm font-medium text-gray-secondary"
+              class="py-4 text-sm font-bold text-gray-secondary"
             >
               Descripción
             </a>
@@ -95,7 +95,7 @@ const description = product.description.split(/\n\s*\n/)
           <div class="flow-root mt-4">
             {
               description.map((desc: string) => (
-                <p class="text-gray-secondary">{desc}</p>
+                <p class="text-gray-secondary text-sm">{desc}</p>
               ))
             }
           </div>
