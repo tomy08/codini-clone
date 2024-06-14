@@ -54,7 +54,7 @@ const description = product.description.split(/\n\s*\n/)
               >
               <span
                 class="text-2xl text-gray-secondary font-bold ${!product.discount && 'line-through'}"
-                >${product.price}</span
+                >${product.price.toLocaleString('es-ES')}</span
               >
             </p>
           </div>
