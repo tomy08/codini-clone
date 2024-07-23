@@ -17,7 +17,7 @@ import Breadcrumb from '../components/shared/Breadcrumb.astro'
         class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
         placeholder="Nombre completo:"
         type="text"
-        id="name"
+        id="nombre"
       />
       <label class="sr-only" for="email">Dirección email</label>
       <input
@@ -55,8 +55,7 @@ import Breadcrumb from '../components/shared/Breadcrumb.astro'
           class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-2"
         >
         <option value="" disabled selected hidden class="text-gray-400">Seleccionar una opción</option>
-
-        <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
+          <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
           <option value="BA">Buenos Aires</option>
           <option value="CT">Catamarca</option>
           <option value="CH">Chaco</option>
@@ -88,6 +87,55 @@ import Breadcrumb from '../components/shared/Breadcrumb.astro'
         placeholder="Localidad:"
         type="text"
         id="localidad"
+      />
+      <label class="sr-only" for="codigoPostal">Código postal</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Código postal:"
+        type="text"
+        id="codigoPostal"
+      />
+      <label class="sr-only" for="producto">Producto</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Producto:"
+        type="text"
+        id="producto"
+      />
+      <label class="sr-only" for="marca">Marca</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Marca:"
+        type="text"
+        id="marca"
+      />
+      <label class="sr-only" for="modelo">Modelo</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Modelo:"
+        type="text"
+        id="modelo"
+      />
+      <label class="sr-only" for="nroSerie">Nº de serie</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Nº de serie:"
+        type="text"
+        id="nroSerie"
+      />
+      <label class="sr-only" for="fechaCompra">Fecha de compra</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Fecha de compra:"
+        type="date"
+        id="fechaCompra"
+      />
+      <label class="sr-only" for="comercio">Comercio</label>
+      <input
+        class="w-full rounded-lg p-3 text-sm bg-gray-200 mt-10"
+        placeholder="Comercio:"
+        type="text"
+        id="comercio"
       />
       <button
         type="submit"
