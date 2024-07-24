@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro'
+
+import ProductCollection from '../../components/shared/products/ProductCollection.astro'
+import ProductCard from '../../components/shared/products/ProductCard.astro'
+import Breadcrumb from '../../components/shared/Breadcrumb.astro'
+import type { Product } from '../../types'
+import { getProducts } from '../../utils/products'
+import { getCategory } from '../../utils/category'
+
+export async function getStaticPaths() {
+  return [
+    { params: { category: 'lavarropas-automaticos' } },
+    { params: { category: 'lavarropas-semiautomaticos' } },
+    { params: { category: 'horno-electrico' } },
+    { params: { category: 'secarropas' } },
+    { params: { category: 'ventiladores-de-techo' } },
+    { params: { category: 'ventiladores-de-pie' } },
+  ]
+}
+
+const { category } = Astro.params
+
+const categoryReformed = getCategory(category)
+
+const products = await getProducts()
+
+products.items = products.items.filter(
+  (product: any) => product.fields.category === categoryReformed
+)
+---
+
+<Layout title="Products">
+  <Breadcrumb />
+  <ProductCollection>
+    {
+      products.items.map((product: any) => (
+        <ProductCard
+          product={
+            {
+              ...product.fields,
+              img: product.fields.img.fields.file.url,
+            } as Product
+          }
+        />
+      ))
+    }
+  </ProductCollection>
+</Layout>
