@@ -10,6 +10,8 @@ import { getProducts } from '../utils/products'
 import type { Product } from '../types'
 
 const products = await getProducts()
+
+products.items = products.items.sort(() => Math.random() - 0.5).slice(0, 3)
 ---
 
 <Layout title="Codini">
