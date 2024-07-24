@@ -13,6 +13,16 @@ export const getProducts = async () => {
   return entries
 }
 
+export const getProductsByCategory = async (category: string) => {
+  const entries = await client.getEntries({
+    content_type: 'product',
+    'fields.category.sys.contentType.sys.id': 'category',
+    'fields.category.fields.name': category,
+  })
+
+  return entries
+}
+
 export const getProductBySlug = async (slug: string) => {
   const entries: any = await client.getEntries({
     content_type: 'product',
