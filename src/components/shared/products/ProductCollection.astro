@@ -1,45 +1,59 @@
 ---
 import ProductContainer from './ProductContainer.astro'
 
-import PriceSort from './filters/PriceSort.astro'
-import PriceFilter from './filters/PriceFilter.astro'
-import CategoryFilter from './filters/CategoryFilter.astro'
+const categories = [
+  {
+    slug: 'lavarropas-automaticos',
+    name: 'Lavarropas automáticos',
+  },
+  {
+    slug: 'lavarropas-semiautomaticos',
+    name: 'Lavarropas semiautomáticos',
+  },
+  {
+    slug: 'horno-electrico',
+    name: 'Horno eléctrico',
+  },
+  {
+    slug: 'secarropas',
+    name: 'Secarropas',
+  },
+  {
+    slug: 'ventiladores-de-techo',
+    name: 'Ventiladores de techo',
+  },
+  {
+    slug: 'ventiladores-de-pie',
+    name: 'Ventiladores de pie',
+  },
+]
 ---
 
 <section>
-  <div class="mx-auto max-w-screen-xl">
-    <div class="mt-8 block lg:hidden">
-      <button
-        class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
-      >
-        <span class="text-sm font-medium"> Filtros </span>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-4 rtl:rotate-180"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
-        </svg>
-      </button>
-    </div>
-
-    <div class="mt-4 lg:mt-8 lg:grid lg:grid-cols-4 lg:items-start lg:gap-8">
-      <div class="hidden space-y-4 lg:block">
-        <PriceSort />
+  <div class="mx-auto">
+    <div
+      class="mt-4 ml-4 lg:mt-8 lg:ml-12 lg:grid lg:grid-cols-4 lg:items-start"
+    >
+      <div class="space-y-4 max-w-60">
         <div>
-          <p class="block text-xs font-medium text-gray-700">Filtros</p>
+          <p class="block text-sm font-bold text-gray-700">
+            Filtros según la categoría
+          </p>
 
-          <div class="mt-1 space-y-2">
-            <CategoryFilter />
-            <PriceFilter />
-          </div>
+          <ul class="mt-2">
+            {
+              categories.map((category: { slug: string; name: string }) => (
+                <li>
+                  <a
+                    href={`/categorias/${category.slug}`}
+                    class="text-sm text-gray-700 hover:text-gray-700 transition hover:underline"
+                  >
+                    {category.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </div>
 
