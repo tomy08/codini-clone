@@ -5,6 +5,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props
+
+const paragraphs = description.split('<br>')
 ---
 
 <details class="group [&_summary::-webkit-details-marker]:hidden" open>
@@ -28,7 +30,9 @@ const { title, description } = Astro.props
     </svg>
   </summary>
 
-  <p class="mt-4 px-4 leading-relaxed text-gray-700">
-    {description}
-  </p>
+  {
+    paragraphs.map((paragraph) => (
+      <p class="text-sm mt-1 px-4 leading-relaxed text-gray-700">{paragraph}</p>
+    ))
+  }
 </details>
