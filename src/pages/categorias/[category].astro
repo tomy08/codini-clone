@@ -28,6 +28,8 @@ const products = await getProducts()
 products.items = products.items.filter(
   (product: any) => product.fields.category === categoryReformed
 )
+
+products.items.sort((a: any, b: any) => a.fields.price - b.fields.price)
 ---
 
 <Layout title="Products">
