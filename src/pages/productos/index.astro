@@ -10,6 +10,13 @@ import { getProducts } from '../../utils/products'
 import type { Product } from '../../types'
 
 const products = await getProducts()
+
+products.items.sort((a: any, b: any) => {
+  if (a.fields.category < b.fields.category) return -1
+  if (a.fields.category > b.fields.category) return 1
+
+  return a.fields.price - b.fields.price
+})
 ---
 
 <Layout title="Products">
