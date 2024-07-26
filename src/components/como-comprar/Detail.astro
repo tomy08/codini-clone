@@ -29,10 +29,11 @@ const paragraphs = description.split('<br>')
         d="M19 9l-7 7-7-7"></path>
     </svg>
   </summary>
-
+<div class="bg-gray-200 rounded-lg p-4">
   {
     paragraphs.map((paragraph) => (
-      <p class="text-sm mt-1 px-4 leading-relaxed text-gray-700">{paragraph}</p>
+      <p class="text-sm mt-1 px-4 leading-relaxed text-gray-700 ">{paragraph}</p>
     ))
   }
+</div>
 </details>
