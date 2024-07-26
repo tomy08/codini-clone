@@ -6,38 +6,72 @@ const details = [
   {
     title: '¿Cómo comprar en la Tienda Online CODINI?',
     content: `
-      1) Elegí tus productos <br>
-      Buscá el producto deseado desde el cuadro de búsqueda o por categoría en la página principal de la Tienda Online.
-Podrás visualizar el producto, con sus características y atributos. <br> Una vez que seleccionaste tu artículo clickeá el botón “COMPRAR”. Tu producto se agrega al carrito de compra, clickeá "IR AL CARRITO DE COMPRAS" y "COMPRAR". Te solicita que te registres para completar tu operación.
-<br> 2) Registración: Completá tus datos personales <br> Ingresá tu correo electrónico y completá tus datos personales para generar tu registración por primera y única vez. Luego cuando ingreses para futuras compras ya estarás registrado! 
-<br> 
-3) Carrito de Compras <br> Aquí podrás visualizar el listado de productos pre-seleccionados hasta el momento. Podés seguir comprando, o bien cerrar tu compra: selecciona el metodo de entrega y continuar. Podrás visualizar el resumen de tu orden y el detalle a pagar, elegi el metodo de pago.
-
-<br> 4) Finalizá la compra <br> Clickeá Finalizar compra para concluir con la operación.
-Recibirás por mail las notificaciones sobre el estado de tu compra
+      Para realizar una compra en la tienda online, sigue estos pasos:
+    <br>
+      1. Elegí tus productos: Busca el producto deseado desde el cuadro de búsqueda o por categoría en la página principal de la Tienda Online. Podrás visualizar el producto, con sus características y atributos. Una vez que seleccionaste tu artículo, haz clic en el botón “COMPRAR”. Tu producto se agrega al carrito de compra, haz clic en "IR AL CARRITO DE COMPRAS" y "COMPRAR". Te solicitará que te registres para completar tu operación.<br><br>
+    <br>
+      2. Registración: Completa tus datos personales ingresando tu correo electrónico y otros datos para generar tu registro por primera y única vez. Luego, cuando ingreses para futuras compras, ya estarás registrado.<br><br>
+    <br>
+      3. Carrito de Compras: Aquí podrás visualizar el listado de productos pre-seleccionados hasta el momento. Puedes seguir comprando o cerrar tu compra: selecciona el método de entrega y continúa. Verás el resumen de tu orden y el detalle a pagar, elige el método de pago.<br><br>
+    <br>
+      4. Finaliza la compra: Haz clic en “Finalizar compra” para concluir la operación. Recibirás por mail las notificaciones sobre el estado de tu compra.
+   `,
+  },
+  {
+    title: '¿Cómo puedo seguir el estado de entrega de mi compra?',
+    content: `
+      Desde el área de Posventa, recibirás un mail de contacto con el estado de tu compra.
+      Se te enviará por este medio la factura de compra digital y el número de envío de tu producto/s para que puedas hacer el seguimiento online.
     `,
   },
   {
-    title: '¿Cómo comprar en la Tienda Online CODINI?',
+    title: '¿Cómo obtengo mi factura de compra?',
     content: `
-      1) Elegí tus productos <br>
-      Buscá el producto deseado desde el cuadro de búsqueda o por categoría en la página principal de la Tienda Online.
-Podrás visualizar el producto, con sus características y atributos. <br> Una vez que seleccionaste tu artículo clickeá el botón “COMPRAR”. Tu producto se agrega al carrito de compra, clickeá "IR AL CARRITO DE COMPRAS" y "COMPRAR". Te solicita que te registres para completar tu operación.
-<br> 2) Registración: Completá tus datos personales <br> Ingresá tu correo electrónico y completá tus datos personales para generar tu registración por primera y única vez. Luego cuando ingreses para futuras compras ya estarás registrado! 
-<br> 
-3) Carrito de Compras <br> Aquí podrás visualizar el listado de productos pre-seleccionados hasta el momento. Podés seguir comprando, o bien cerrar tu compra: selecciona el metodo de entrega y continuar. Podrás visualizar el resumen de tu orden y el detalle a pagar, elegi el metodo de pago.
-
-<br> 4) Finalizá la compra <br> Clickeá Finalizar compra para concluir con la operación.
-Recibirás por mail las notificaciones sobre el estado de tu compra
+      Desde el área de Posventa recibirás vía mail la factura electrónica de tu compra.
+    `,
+  },
+  {
+    title: '¿Quién puede recibir la compra?',
+    content: `
+      Toda persona mayor de 18 años podrá recibir la compra mostrando DNI. Quien recibe es importante que firme el remito y revise el estado del producto.
+    `,
+  },
+  {
+    title: '¿Cómo hago para gestionar la devolución o el cambio de un producto?',
+    content: `
+      Contactate vía mail a atencionalcliente@codini.com.ar o al service@codini.com.ar
+    `,
+  },
+  {
+    title: '¿Cómo consulto stock disponible?',
+    content: `
+      Siempre que un producto esté publicado en la Tienda Online y disponible para su compra significa que hay stock.
+    `,
+  },
+  {
+    title: '¿Cómo puedo saber el costo del envío?',
+    content: `
+      Actualmente todos los productos de la Tienda Online tienen envío sin cargo.
+    `,
+  },
+  {
+    title: '¿Dónde puedo consultar por más información sobre un producto?',
+    content: `
+      Para consultas sobre instalación de productos y mantenimiento, además de otras características, podés llamar al 0800-345-1661 de Lunes a Viernes de 8 a 17 hs.
+    `,
+  },
+  {
+    title: '¿Cuáles son los tiempos de envío del producto que compré?',
+    content: `
+      Los tiempos de envío del producto que compraste oscilan entre los cuatro y los siete días hábiles, posterior a tu compra.
+      Además de recibir la factura vía mail, estarás recibiendo el número de seguimiento de envío para que puedas seguir el recorrido de tu producto en camino directamente en la página de envío del correo.
     `,
   },
 ]
 ---
 
 <Layout title="Codini">
-  <h1
-    class="flex items-center justify-center mt-11 text-black font-bold text-3xl"
-  >
+  <h1 class="flex items-center justify-center mt-11 text-black font-bold text-3xl">
     ¿Cómo comprar?
   </h1>
   <main>
