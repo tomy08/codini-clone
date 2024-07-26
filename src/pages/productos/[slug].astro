@@ -123,6 +123,8 @@ const description = product.description.split(/\n\s*\n/)
     })
 
     btn?.addEventListener('click', () => {
+      const countProducts = document.getElementById('count-products')
+
       const quantity = quantityInput.value
       let cart = JSON.parse(localStorage.getItem('cart')) || []
 
@@ -137,6 +139,18 @@ const description = product.description.split(/\n\s*\n/)
       }
 
       localStorage.setItem('cart', JSON.stringify(cart))
+
+      const totalProducts = cart.reduce(
+        (acc, product) => acc + product.quantity,
+        0
+      )
+
+      if (totalProducts > 0) {
+        countProducts.textContent = totalProducts
+        countProducts.classList.remove('hidden')
+      } else {
+        countProducts.classList.add('hidden')
+      }
     })
   </script>
 </Layout>

@@ -42,12 +42,41 @@
       >
         Contacto
       </a>
-      <a
-        class="text-sm font-medium hover:underline underline-offset-4 mr-0"
-        href="/cart"
-      >
-        <img src="/svgs/cart.svg" class="text-gray-secondary" />
-      </a>
+      <div class="relative">
+        <a
+          class="text-sm font-medium hover:underline underline-offset-4 mr-0"
+          href="/cart"
+        >
+          <img src="/svgs/cart.svg" class="text-gray-secondary" />
+        </a>
+        <span
+          class="absolute top-0 right-0 -mt-2 -mr-4 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-md"
+          id="count-products">0</span
+        >
+      </div>
     </nav>
   </div>
+
+  <script>
+    const countProducts = document.getElementById('count-products')!
+
+    function updateProductCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+      const totalProducts = cart.reduce(
+        (acc: any, product: any) => acc + product.quantity,
+        0
+      )
+      if (totalProducts > 0) {
+        countProducts.textContent = totalProducts
+        countProducts.classList.remove('hidden')
+      } else {
+        countProducts.classList.add('hidden')
+      }
+    }
+    updateProductCount()
+
+    window.addEventListener('storage', (e) => {
+      updateProductCount()
+    })
+  </script>
 </header>
