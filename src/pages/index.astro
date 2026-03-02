@@ -9,13 +9,13 @@ import { getProducts } from '../utils/products'
 
 import type { Product } from '../types'
 
-const products = await getProducts()
+const allProducts = await getProducts()
 
-products.items = products.items.sort(() => Math.random() - 0.5).slice(0, 3)
+const featured = [...allProducts].sort(() => Math.random() - 0.5).slice(0, 3)
 ---
 
-<Layout title="Codini">
-  <h1 class="hidden">Codini</h1>
+<Layout title="Pañalera Vera">
+  <h1 class="hidden">Pañalera Vera</h1>
   <Gallery />
   <main>
     <h2 class="text-gray-secondary text-3xl font-bold mb-6">
@@ -26,18 +26,7 @@ products.items = products.items.sort(() => Math.random() - 0.5).slice(0, 3)
       Productos destacados
     </h2>
     <ProductContainer>
-      {
-        products.items.map((product: any) => (
-          <ProductCard
-            product={
-              {
-                ...product.fields,
-                img: product.fields.img.fields.file.url,
-              } as Product
-            }
-          />
-        ))
-      }
+      {featured.map((product: Product) => <ProductCard product={product} />)}
     </ProductContainer>
   </main>
 </Layout>

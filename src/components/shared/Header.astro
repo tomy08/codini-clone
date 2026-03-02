@@ -4,26 +4,29 @@
   >
     <a class="flex items-center gap-2 relative" href="/">
       <img
-        src="/images/logo-sin-slogan-azul.webp"
-        alt="logo de codini"
-        class="w-32 p-1"
+        src="/images/logo.png"
+        alt="logo de Pañalera Vera"
+        class="w-16 h-16 rounded-full object-cover"
       />
+      <span class="text-green-primary font-bold text-xl hidden sm:block"
+        >Pañalera Vera</span
+      >
     </a>
     <nav class="flex items-center gap-4 sm:gap-6">
       <a
-        class="text-gray-secondary/85 transition hover:text-gray-secondary hover:underline underline-offset-4"
+        class="text-gray-secondary/85 transition hover:text-green-primary hover:underline underline-offset-4"
         href="/productos"
       >
         Productos
       </a>
       <a
-        class="text-gray-secondary/85 transition hover:text-gray-secondary hover:underline underline-offset-4"
+        class="text-gray-secondary/85 transition hover:text-green-primary hover:underline underline-offset-4"
         href="/sobre-nosotros"
       >
         Sobre nosotros
       </a>
       <a
-        class="text-gray-secondary/85 transition hover:text-gray-secondary hover:underline underline-offset-4"
+        class="text-gray-secondary/85 transition hover:text-green-primary hover:underline underline-offset-4"
         href="/contacto"
       >
         Contacto
@@ -36,7 +39,7 @@
           <img src="/svgs/cart.svg" class="text-gray-secondary" />
         </a>
         <span
-          class="absolute top-0 right-0 -mt-2 -mr-4 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-md"
+          class="absolute top-0 right-0 -mt-2 -mr-4 bg-green-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-md"
           id="count-products">0</span
         >
       </div>
@@ -50,7 +53,7 @@
       const cart = JSON.parse(localStorage.getItem('cart') || '[]')
       const totalProducts = cart.reduce(
         (acc: any, product: any) => acc + product.quantity,
-        0
+        0,
       )
       if (totalProducts > 0) {
         countProducts.textContent = totalProducts

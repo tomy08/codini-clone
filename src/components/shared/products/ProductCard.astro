@@ -13,8 +13,16 @@ const url = `/productos/${product.url}`
 <div
   class="relative m-2 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 hover:border-gray-200 bg-white shadow-sm hover:shadow-md"
 >
-  <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href={url}>
-    <img class="object-cover mx-auto" src={product.img} alt={product.name} />
+  <a
+    class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl bg-gray-50"
+    href={url}
+  >
+    <img
+      class="object-cover mx-auto"
+      src={product.img}
+      alt={product.name}
+      onerror="this.onerror=null;this.src='/images/placeholder-product.svg'"
+    />
     <span
       class=`absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white ${product.discount ? 'block' : 'hidden'}`
       >{product.discount} OFF</span
@@ -23,7 +31,7 @@ const url = `/productos/${product.url}`
   <div class="mt-4 px-5 pb-5">
     <a href={url}>
       <h5 class="text-xl tracking-tight text-gray-secondary">
-        {product.name ? product.name : product.nombre}
+        {product.name}
       </h5>
     </a>
     <div class="mt-2 mb-5 flex items-center justify-between">
@@ -57,7 +65,7 @@ const url = `/productos/${product.url}`
           d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
         ></path>
       </svg>
-      Add to cart</a
+      Ver producto</a
     >
   </div>
 </div>

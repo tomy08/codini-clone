@@ -1,32 +1,8 @@
 ---
 import ProductContainer from './ProductContainer.astro'
+import { categoryList } from '../../../utils/category'
 
-const categories = [
-  {
-    slug: 'lavarropas-automaticos',
-    name: 'Lavarropas automáticos',
-  },
-  {
-    slug: 'lavarropas-semiautomaticos',
-    name: 'Lavarropas semiautomáticos',
-  },
-  {
-    slug: 'horno-electrico',
-    name: 'Horno eléctrico',
-  },
-  {
-    slug: 'secarropas',
-    name: 'Secarropas',
-  },
-  {
-    slug: 'ventiladores-de-techo',
-    name: 'Ventiladores de techo',
-  },
-  {
-    slug: 'ventiladores-de-pie',
-    name: 'Ventiladores de pie',
-  },
-]
+const categories = categoryList
 ---
 
 <section>

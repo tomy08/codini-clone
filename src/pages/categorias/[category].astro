@@ -6,16 +6,14 @@ import ProductCard from '../../components/shared/products/ProductCard.astro'
 import Breadcrumb from '../../components/shared/Breadcrumb.astro'
 import type { Product } from '../../types'
 import { getProducts } from '../../utils/products'
-import { getCategory } from '../../utils/category'
+import { getCategory, categoryList } from '../../utils/category'
 
 export async function getStaticPaths() {
   return [
-    { params: { category: 'lavarropas-automaticos' } },
-    { params: { category: 'lavarropas-semiautomaticos' } },
-    { params: { category: 'horno-electrico' } },
-    { params: { category: 'secarropas' } },
-    { params: { category: 'ventiladores-de-techo' } },
-    { params: { category: 'ventiladores-de-pie' } },
+    { params: { category: 'panales' } },
+    { params: { category: 'toallitas' } },
+    { params: { category: 'cremas-y-oleos' } },
+    { params: { category: 'accesorios' } },
   ]
 }
 
@@ -23,29 +21,16 @@ const { category } = Astro.params
 
 const categoryReformed = getCategory(category)
 
-const products = await getProducts()
+const allProducts = await getProducts()
 
-products.items = products.items.filter(
-  (product: any) => product.fields.category === categoryReformed
-)
-
-products.items.sort((a: any, b: any) => a.fields.price - b.fields.price)
+const filtered = allProducts
+  .filter((product: Product) => product.category === categoryReformed)
+  .sort((a: Product, b: Product) => a.price - b.price)
 ---
 
-<Layout title="Products">
+<Layout title={`${categoryReformed} - Pañalera Vera`}>
   <Breadcrumb />
   <ProductCollection>
-    {
-      products.items.map((product: any) => (
-        <ProductCard
-          product={
-            {
-              ...product.fields,
-              img: product.fields.img.fields.file.url,
-            } as Product
-          }
-        />
-      ))
-    }
+    {filtered.map((product: Product) => <ProductCard product={product} />)}
   </ProductCollection>
 </Layout>

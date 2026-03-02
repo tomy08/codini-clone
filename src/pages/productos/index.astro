@@ -11,28 +11,16 @@ import type { Product } from '../../types'
 
 const products = await getProducts()
 
-products.items.sort((a: any, b: any) => {
-  if (a.fields.category < b.fields.category) return -1
-  if (a.fields.category > b.fields.category) return 1
-
-  return a.fields.price - b.fields.price
+const sorted = [...products].sort((a, b) => {
+  if (a.category < b.category) return -1
+  if (a.category > b.category) return 1
+  return a.price - b.price
 })
 ---
 
-<Layout title="Products">
+<Layout title="Productos - Pañalera Vera">
   <Breadcrumb />
   <ProductCollection>
-    {
-      products.items.map((product: any) => (
-        <ProductCard
-          product={
-            {
-              ...product.fields,
-              img: product.fields.img.fields.file.url,
-            } as Product
-          }
-        />
-      ))
-    }
+    {sorted.map((product: Product) => <ProductCard product={product} />)}
   </ProductCollection>
 </Layout>

@@ -1,5 +1,5 @@
 {
-  "name": "codini-clone",
+  "name": "panalera-vera",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -15,6 +15,7 @@
     "astro": "^4.12.2",
     "contentful": "^10.11.7",
     "photoswipe": "^5.4.4",
+    "shiki": "^4.0.1",
     "swiper": "^11.1.4",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
