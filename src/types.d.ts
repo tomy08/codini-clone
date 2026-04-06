@@ -7,6 +7,7 @@ export interface Product {
   description: string
   category: string
   url: string
+  units: string[]
 }
 
 export interface CartItem {
